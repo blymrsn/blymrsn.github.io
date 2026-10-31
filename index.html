@@ -34,11 +34,11 @@
       <img src="images/hero-talk.jpg" alt="Bailey Hiles-Murison presenting at a conference, in front of a slide titled ‘How is transcription regulated throughout the cell cycle?’" width="1800" height="863">
     </figure>
 
-    <p class="statement">As a cell grows, it keeps the concentration of each mRNA roughly constant. I watch single genes switch on and off in living cells to find out how.</p>
+    <p class="statement">As each cell grows, it keeps the concentration of each mRNA roughly constant. I watch single genes switch on and off in living cells to find out how.</p>
 
     <div class="home-intro">
       <div class="text">
-        <p>Hi! I’m Bailey, a PhD candidate in <a href="https://berrygroup.github.io/">Scott Berry’s group</a> at the EMBL Australia Node in Single Molecule Science and the UNSW RNA Institute, UNSW Sydney. I study how cells control the transcription of individual genes to keep their mRNA levels in balance as they grow and divide, combining live-cell imaging, single-molecule counting and custom analysis.</p>
+        <p>Hi! I’m Bailey, a PhD candidate in <a href="https://berrygroup.github.io/">Scott Berry’s group</a> at the EMBL Australia Node in Single Molecule Science and the UNSW RNA Institute, UNSW Sydney. I study how cells control the transcription of individual genes to keep their mRNA levels in balance as they grow and divide, combining live-cell imaging, single-molecule counting and bespoke analysis pipelines.</p>
         <p>Before UNSW, I studied Molecular Genetics and Biotechnology at Curtin University, then did honours with Ryu Takechi, testing whether Probucol could attenuate <em>APOE4</em>-associated neurodegeneration and helping establish the earliest brain changes after repeated sub-concussion. I expect to submit my thesis in February 2027.</p>
         <p><a href="#research">Read more about my research</a>, or get in touch at <a href="mailto:b.hilesmurison@unsw.edu.au">b.hilesmurison@unsw.edu.au</a>.</p>
       </div>
@@ -63,22 +63,22 @@
         <button class="pause" id="pause" type="button">Pause</button>
         <div class="scalebar" aria-hidden="true"><i></i>10 µm</div>
       </div>
-      <figcaption>Simulated field of view: transcription sites switching on and off inside cell nuclei. Larger nuclei fire more often, a cartoon of transcriptional size scaling. A placeholder until real lattice lightsheet data goes here.</figcaption>
+      <figcaption>Sim FoV: transcription sites switching on and off inside cell nuclei. Larger nuclei fire more often, a textbook model of size-scaling. placeholder until i get a prettier FoV.</figcaption>
     </figure>
     <div class="text">
-      <p>Cells keep their mRNA concentrations remarkably steady. As a cell grows, transcript numbers rise in proportion to its size, and when production or decay is disturbed, cells rebalance the other to compensate. We know these adjustments happen, mostly from fixed-cell snapshots, but not how an individual gene tunes its activity, moment to moment, to make them happen.</p>
+      <p>Cells keep their mRNA concentrations remarkably steady in the context of intrinsic and extrinsic noise. As a cell grows, transcript numbers rise in proportion to its size, and when production or decay is disturbed, cells rebalance the other to compensate. We know these adjustments happen, mostly from fixed-cell snapshots, but not how an individual gene tunes its activity, moment to moment, to make them happen.</p>
       <p class="key">My PhD asks how cells regulate transcription at the single-gene level to maintain mRNA homeostasis across the cell cycle and as cells change in size.</p>
       <p>To answer it, I combine two kinds of measurement: live imaging shows when and how strongly a gene fires, and single-molecule counting shows how much mRNA that activity leaves behind. Using <em>POLR2A</em> as a test case, both show transcription scaling with cell size, and reveal which parameters of gene expression shift to keep mRNA concentration steady.</p>
     </div>
 
-    <h2>Watching transcription live</h2>
+    <h2>Seeing transcription live</h2>
     <div class="text">
-      <p>Using CRISPR-Cas9, I insert a tag at a gene’s endogenous locus, so newly made RNA lights up the moment it is transcribed while the gene keeps its natural regulation. A lattice lightsheet microscope then follows these transcription sites in living cells for hours, with high spatial and temporal resolution and little light damage, so bursts of activity can be tracked through the cell cycle.</p>
+      <p>Using CRISPR-Cas9 based gene editing and MS2-based reporters pioneered by Robert Singer, I insert a tag at a gene’s endogenous locus, so newly made RNA lights up the moment it is transcribed. I then utilise a lattice lightsheet microscope to follow these transcription sites in living cells over the course of hours, with high spatial and temporal resolution and little light damage, such that bursts of activity can be tracked through the cell cycle.</p>
     </div>
 
     <h2>Counting every molecule</h2>
     <div class="text">
-      <p>With single-molecule RNA-FISH, every mRNA shows up as a diffraction-limited spot that can be detected, assigned to a cell, and split between nucleus and cytoplasm. That turns an image into a measurement: how many transcripts each cell holds, and how that number tracks with cell size.</p>
+      <p>With single-molecule RNA-FISH, every mRNA shows up as a diffraction-limited spot that can be detected, assigned to a cell, and split between compartments. That turns an image into a measurement: how many transcripts each cell holds, the distribution of these mRNAs and how that number tracks with cell size.</p>
     </div>
     <div class="pair">
       <figure style="margin:0">
@@ -97,10 +97,10 @@
       </figure>
     </div>
 
-    <h2>From movies to measurements</h2>
+    <h2>From movies to quantitative measurements</h2>
     <div class="text">
       <p><span class="reggie">reggie</span> is the analysis package I’m building to turn hours of live-cell imaging into clean, comparable transcription traces. Nuclei are segmented with Cellpose-SAM and tracked with laptrack, and transcription sites are detected with ilastik. reggie then crops and recentres each cell, follows a single locus through time, measures its intensity against a matched control region and the nuclear background, and applies quality filters and photobleaching correction before anything is analysed.</p>
-      <p>Every threshold is set from quality-control plots rather than by eye. In the dataset below, 741 of 1,123 tracked cells passed curation.</p>
+      <p>Every threshold is set from quality-control plots rather than by eye, so researchers can readily adapt the pipeline to their own systems and biological questions.</p>
     </div>
     <figure class="cellmovie">
       <div class="plate movie">
